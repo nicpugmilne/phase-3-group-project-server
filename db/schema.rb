@@ -19,10 +19,6 @@ ActiveRecord::Schema.define(version: 2022_07_11_215833) do
     t.time "closes_at"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
   end

@@ -53,7 +53,7 @@ class ApplicationController < Sinatra::Base
 #Update an order (mark as completed)
   patch "/orders/:order_id/complete" do
   order = Order.find(params[:order_id])
-  order.update(completed?: 1)
+  order.update(is_completed: 1)
   order.to_json
   end
 

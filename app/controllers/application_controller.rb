@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
 
 #Create a new order
   post "/orders/new" do
-    new_order  = Order.create(completed?: 0, restaurant_id: params[:restaurant_id])
+    new_order  = Order.create(is_completed: 0, restaurant_id: params[:restaurant_id])
     new_order.to_json
   end
 

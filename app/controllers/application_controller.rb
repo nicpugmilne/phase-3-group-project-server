@@ -19,6 +19,12 @@ class ApplicationController < Sinatra::Base
     menu.to_json(include: :item)
   end
 
+#Read all order items in first order which is not completed
+  get "/ordered_items" do
+    items = Order.get_open_order_items
+    items.to_json(include: :item)
+  end
+
 #Create a new order
   post "/orders/new" do
     new_order  = Order.create(completed?: 0, restaurant_id: params[:restaurant_id])

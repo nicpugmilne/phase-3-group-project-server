@@ -6,7 +6,7 @@ class Restaurant < ActiveRecord::Base
     belongs_to :cuisine
 
     def average_rating
-        totalratings = self.ratings.sum(:rating) / self.ratings.length
+        self.ratings.sum(:rating) / self.ratings.length
     end
 
     def serialize_restaurant

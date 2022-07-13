@@ -25,6 +25,12 @@ class ApplicationController < Sinatra::Base
     items.to_json(include: :item)
   end
 
+#Read current order
+  get "/current_order" do
+    order = Order.get_open_order
+    order.to_json
+  end
+
 #Create a new order
   post "/orders/new" do
     new_order  = Order.create(completed?: 0, restaurant_id: params[:restaurant_id])

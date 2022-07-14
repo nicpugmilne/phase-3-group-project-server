@@ -12,7 +12,7 @@ class Order < ActiveRecord::Base
 
     def self.get_open_order_total_cost
         prices = Order.get_open_order_items.map do |item|
-            item.menu_item.price
+            item.menu_item.price * item.quantity
         end
         prices.sum
     end

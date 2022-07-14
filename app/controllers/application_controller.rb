@@ -19,6 +19,12 @@ class ApplicationController < Sinatra::Base
     menu.to_json(include: :item)
   end
 
+#Read price details about a specific menu item
+  get "/menu_item/:id" do
+    item= MenuItem.find(params[:id])
+    item.to_json
+  end
+
 #Read all order items in first order which is not completed
   get "/ordered_items" do
     items = Order.get_open_order_items

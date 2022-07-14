@@ -9,4 +9,11 @@ class Order < ActiveRecord::Base
     def self.get_open_order_items
         Order.get_open_order.ordered_items
     end
+
+    def self.get_open_order_total_cost
+        prices = Order.get_open_order_items.map do |item|
+            item.menu_item.price
+        end
+        prices.sum
+    end
 end 

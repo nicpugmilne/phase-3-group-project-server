@@ -37,6 +37,12 @@ class ApplicationController < Sinatra::Base
     order.to_json
   end
 
+#Read current order total cost
+  get "/current_order_cost" do
+    cost = Order.get_open_order_total_cost
+    cost.to_json
+  end
+
 #Create a new order
   post "/orders/new" do
     new_order  = Order.create(is_completed: 0, restaurant_id: params[:restaurant_id])
